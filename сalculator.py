@@ -28,8 +28,8 @@ def calculator(stack, elem_list: List[str]):
         if elem not in OPERATORS:
             stack.push(int(elem))
         else:
-            a, b = stack.pop(), stack.pop()
-            stack.push(OPERATORS[elem](b, a))
+            num_a, num_b = stack.pop(), stack.pop()
+            stack.push(OPERATORS[elem](num_b, num_a))
 
     return stack.pop()
 
