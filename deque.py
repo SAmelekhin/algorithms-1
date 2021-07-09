@@ -61,7 +61,7 @@ def command_handler(deque):
     try:
         return getattr(deque, cmd)(*args)
     except AttributeError:
-        raise AttributeError('Invalid value')
+        raise ValueError('Invalid value')
     except (DequeIsFullError, DequeIsEmptyError):
         return 'error'
 
