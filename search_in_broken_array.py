@@ -1,22 +1,19 @@
-from typing import List
+from typing import Any, List, Tuple, Union
 
 
-def broken_search(arr: List[int], target: int) -> int:
-    left, right = 0, len(arr) - 1
-
+def broken_search(elements: Union[List[Any], Tuple[Any]], target: Any) -> Any:
+    left, right = 0, len(elements) - 1
     while left <= right:
         mid = (left + right) // 2
-
-        if target == arr[mid]:
+        if target == elements[mid]:
             return mid
-
-        if arr[mid] <= arr[right]:
-            if arr[mid] < target <= arr[right]:
+        if elements[mid] <= elements[right]:
+            if elements[mid] < target <= elements[right]:
                 left = mid + 1
             else:
                 right = mid - 1
         else:
-            if arr[left] <= target < arr[mid]:
+            if elements[left] <= target < elements[mid]:
                 right = mid - 1
             else:
                 left = mid + 1
